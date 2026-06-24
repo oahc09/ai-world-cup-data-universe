@@ -7,6 +7,7 @@ import { Timeline3DScene } from '@/components/timeline/Timeline3DScene'
 import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
 import { DetailCard } from '@/components/timeline/DetailCard'
 import { TeamRadarView } from '@/components/radar/TeamRadarView'
+import { ChampionPathView } from '@/components/path/ChampionPathView'
 import { useWebGLSupport } from '@/hooks/useWebGLSupport'
 
 export default function Home() {
@@ -32,7 +33,7 @@ export default function Home() {
           )
         )}
         {view === 'radar' && <TeamRadarView />}
-        {view === 'path' && <div className="p-8 text-white/50">夺冠路径（Task 10 实现）</div>}
+        {view === 'path' && <ChampionPathView />}
         {view === 'map' && <div className="p-8 text-white/50">历届地图（Task 11 实现）</div>}
       </div>
 
