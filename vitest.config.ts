@@ -12,5 +12,6 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/__tests__/setup.ts'],
     css: false,
+    exclude: ['**/node_modules/**', '**/dist/**', 'tests/**', 'playwright.config.ts'],
   },
 })
