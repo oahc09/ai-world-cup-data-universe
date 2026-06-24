@@ -1,0 +1,369 @@
+[
+  {
+    "teamCode": "AR",
+    "teamName": "阿根廷",
+    "year": 1986,
+    "matches": [
+      {
+        "round": "小组赛 R1",
+        "opponent": "韩国",
+        "score": "3-1",
+        "result": "win",
+        "events": [{ "minute": 46, "type": "goal", "player": "马拉多纳" }]
+      },
+      {
+        "round": "小组赛 R2",
+        "opponent": "意大利",
+        "score": "1-1",
+        "result": "draw",
+        "events": [{ "minute": 60, "type": "goal", "player": "马拉多纳" }]
+      },
+      {
+        "round": "小组赛 R3",
+        "opponent": "保加利亚",
+        "score": "2-0",
+        "result": "win",
+        "events": []
+      },
+      {
+        "round": "1/8 决赛",
+        "opponent": "乌拉圭",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 42, "type": "goal", "player": "帕斯库利" }]
+      },
+      {
+        "round": "1/4 决赛",
+        "opponent": "英格兰",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 51, "type": "goal", "player": "马拉多纳(上帝之手)" },
+          { "minute": 55, "type": "goal", "player": "马拉多纳(世纪进球)" }
+        ]
+      },
+      {
+        "round": "半决赛",
+        "opponent": "比利时",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 51, "type": "goal", "player": "马拉多纳" },
+          { "minute": 63, "type": "goal", "player": "马拉多纳" }
+        ]
+      },
+      {
+        "round": "决赛",
+        "opponent": "西德",
+        "score": "3-2",
+        "result": "win",
+        "events": [
+          { "minute": 55, "type": "goal", "player": "布朗" },
+          { "minute": 83, "type": "goal", "player": "布鲁查加" }
+        ]
+      }
+    ]
+  },
+  {
+    "teamCode": "BR",
+    "teamName": "巴西",
+    "year": 2002,
+    "matches": [
+      {
+        "round": "小组赛 R1",
+        "opponent": "土耳其",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 50, "type": "goal", "player": "里瓦尔多" },
+          { "minute": 87, "type": "goal", "player": "罗纳尔多" }
+        ]
+      },
+      {
+        "round": "小组赛 R2",
+        "opponent": "中国",
+        "score": "4-0",
+        "result": "win",
+        "events": [
+          { "minute": 15, "type": "goal", "player": "罗伯特·卡洛斯" },
+          { "minute": 32, "type": "goal", "player": "里瓦尔多" },
+          { "minute": 45, "type": "penalty", "player": "罗纳尔迪尼奥" },
+          { "minute": 55, "type": "goal", "player": "罗纳尔多" }
+        ]
+      },
+      {
+        "round": "小组赛 R3",
+        "opponent": "哥斯达黎加",
+        "score": "5-2",
+        "result": "win",
+        "events": [
+          { "minute": 10, "type": "goal", "player": "罗纳尔多" },
+          { "minute": 13, "type": "goal", "player": "罗纳尔多" },
+          { "minute": 38, "type": "goal", "player": "埃迪尔森" },
+          { "minute": 62, "type": "goal", "player": "埃迪尔森" },
+          { "minute": 64, "type": "goal", "player": "儒尼奥尔" }
+        ]
+      },
+      {
+        "round": "1/8 决赛",
+        "opponent": "比利时",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 67, "type": "goal", "player": "里瓦尔多" },
+          { "minute": 87, "type": "goal", "player": "罗纳尔多" }
+        ]
+      },
+      {
+        "round": "1/4 决赛",
+        "opponent": "英格兰",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 46, "type": "goal", "player": "里瓦尔多" },
+          { "minute": 50, "type": "goal", "player": "罗纳尔迪尼奥" }
+        ]
+      },
+      {
+        "round": "半决赛",
+        "opponent": "土耳其",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 49, "type": "goal", "player": "罗纳尔多" }]
+      },
+      {
+        "round": "决赛",
+        "opponent": "德国",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 67, "type": "goal", "player": "罗纳尔多" },
+          { "minute": 79, "type": "goal", "player": "罗纳尔多" }
+        ]
+      }
+    ]
+  },
+  {
+    "teamCode": "DE",
+    "teamName": "德国",
+    "year": 2014,
+    "matches": [
+      {
+        "round": "小组赛 R1",
+        "opponent": "葡萄牙",
+        "score": "4-0",
+        "result": "win",
+        "events": [
+          { "minute": 12, "type": "goal", "player": "穆勒" },
+          { "minute": 32, "type": "goal", "player": "胡梅尔斯" },
+          { "minute": 45, "type": "goal", "player": "穆勒" },
+          { "minute": 78, "type": "goal", "player": "穆勒" }
+        ]
+      },
+      {
+        "round": "小组赛 R2",
+        "opponent": "加纳",
+        "score": "2-2",
+        "result": "draw",
+        "events": [
+          { "minute": 51, "type": "goal", "player": "格策" },
+          { "minute": 71, "type": "goal", "player": "克洛泽" }
+        ]
+      },
+      {
+        "round": "小组赛 R3",
+        "opponent": "美国",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 55, "type": "goal", "player": "穆勒" }]
+      },
+      {
+        "round": "1/8 决赛",
+        "opponent": "阿尔及利亚",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 92, "type": "goal", "player": "许尔勒" },
+          { "minute": 120, "type": "goal", "player": "厄齐尔" }
+        ]
+      },
+      {
+        "round": "1/4 决赛",
+        "opponent": "法国",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 13, "type": "goal", "player": "胡梅尔斯" }]
+      },
+      {
+        "round": "半决赛",
+        "opponent": "巴西",
+        "score": "7-1",
+        "result": "win",
+        "events": [
+          { "minute": 11, "type": "goal", "player": "穆勒" },
+          { "minute": 23, "type": "goal", "player": "克洛泽" },
+          { "minute": 24, "type": "goal", "player": "克罗斯" },
+          { "minute": 26, "type": "goal", "player": "克罗斯" },
+          { "minute": 29, "type": "goal", "player": "赫迪拉" },
+          { "minute": 69, "type": "goal", "player": "许尔勒" },
+          { "minute": 79, "type": "goal", "player": "许尔勒" }
+        ]
+      },
+      {
+        "round": "决赛",
+        "opponent": "阿根廷",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 113, "type": "goal", "player": "格策" }]
+      }
+    ]
+  },
+  {
+    "teamCode": "FR",
+    "teamName": "法国",
+    "year": 2018,
+    "matches": [
+      {
+        "round": "小组赛 R1",
+        "opponent": "澳大利亚",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 58, "type": "penalty", "player": "格列兹曼" },
+          { "minute": 81, "type": "goal", "player": "贝希奇(乌龙)" }
+        ]
+      },
+      {
+        "round": "小组赛 R2",
+        "opponent": "秘鲁",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 34, "type": "goal", "player": "姆巴佩" }]
+      },
+      {
+        "round": "小组赛 R3",
+        "opponent": "丹麦",
+        "score": "0-0",
+        "result": "draw",
+        "events": []
+      },
+      {
+        "round": "1/8 决赛",
+        "opponent": "阿根廷",
+        "score": "4-3",
+        "result": "win",
+        "events": [
+          { "minute": 13, "type": "penalty", "player": "格列兹曼" },
+          { "minute": 57, "type": "goal", "player": "帕瓦尔" },
+          { "minute": 64, "type": "goal", "player": "姆巴佩" },
+          { "minute": 68, "type": "goal", "player": "姆巴佩" }
+        ]
+      },
+      {
+        "round": "1/4 决赛",
+        "opponent": "乌拉圭",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 40, "type": "goal", "player": "瓦拉内" },
+          { "minute": 61, "type": "goal", "player": "格列兹曼" }
+        ]
+      },
+      {
+        "round": "半决赛",
+        "opponent": "比利时",
+        "score": "1-0",
+        "result": "win",
+        "events": [{ "minute": 51, "type": "goal", "player": "乌姆蒂蒂" }]
+      },
+      {
+        "round": "决赛",
+        "opponent": "克罗地亚",
+        "score": "4-2",
+        "result": "win",
+        "events": [
+          { "minute": 18, "type": "goal", "player": "曼朱基奇(乌龙)" },
+          { "minute": 38, "type": "penalty", "player": "格列兹曼" },
+          { "minute": 59, "type": "goal", "player": "博格巴" },
+          { "minute": 65, "type": "goal", "player": "姆巴佩" }
+        ]
+      }
+    ]
+  },
+  {
+    "teamCode": "AR",
+    "teamName": "阿根廷",
+    "year": 2022,
+    "matches": [
+      {
+        "round": "小组赛 R1",
+        "opponent": "沙特阿拉伯",
+        "score": "1-2",
+        "result": "loss",
+        "events": [{ "minute": 10, "type": "penalty", "player": "梅西" }]
+      },
+      {
+        "round": "小组赛 R2",
+        "opponent": "墨西哥",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 64, "type": "goal", "player": "梅西" },
+          { "minute": 87, "type": "goal", "player": "恩佐·费尔南德斯" }
+        ]
+      },
+      {
+        "round": "小组赛 R3",
+        "opponent": "波兰",
+        "score": "2-0",
+        "result": "win",
+        "events": [
+          { "minute": 46, "type": "goal", "player": "麦卡利斯特" },
+          { "minute": 67, "type": "goal", "player": "阿尔瓦雷斯" }
+        ]
+      },
+      {
+        "round": "1/8 决赛",
+        "opponent": "澳大利亚",
+        "score": "2-1",
+        "result": "win",
+        "events": [
+          { "minute": 35, "type": "goal", "player": "梅西" },
+          { "minute": 57, "type": "goal", "player": "阿尔瓦雷斯" }
+        ]
+      },
+      {
+        "round": "1/4 决赛",
+        "opponent": "荷兰",
+        "score": "2-2",
+        "result": "draw",
+        "events": [
+          { "minute": 35, "type": "goal", "player": "莫利纳" },
+          { "minute": 73, "type": "penalty", "player": "梅西" }
+        ]
+      },
+      {
+        "round": "半决赛",
+        "opponent": "克罗地亚",
+        "score": "3-0",
+        "result": "win",
+        "events": [
+          { "minute": 34, "type": "penalty", "player": "梅西" },
+          { "minute": 39, "type": "goal", "player": "阿尔瓦雷斯" },
+          { "minute": 69, "type": "goal", "player": "阿尔瓦雷斯" }
+        ]
+      },
+      {
+        "round": "决赛",
+        "opponent": "法国",
+        "score": "3-3",
+        "result": "draw",
+        "events": [
+          { "minute": 23, "type": "penalty", "player": "梅西" },
+          { "minute": 36, "type": "goal", "player": "迪马利亚" },
+          { "minute": 108, "type": "goal", "player": "梅西" }
+        ]
+      }
+    ]
+  }
+]

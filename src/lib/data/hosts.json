@@ -1,0 +1,22 @@
+[
+  { "code": "UY", "name": "乌拉圭", "continent": "south-america", "hostYears": [1930], "coords": [-32.5228, -55.7658] },
+  { "code": "IT", "name": "意大利", "continent": "europe", "hostYears": [1934, 1990], "coords": [41.8719, 12.5674] },
+  { "code": "FR", "name": "法国", "continent": "europe", "hostYears": [1938, 1998], "coords": [46.2276, 2.2137] },
+  { "code": "BR", "name": "巴西", "continent": "south-america", "hostYears": [1950, 2014], "coords": [-14.235, -51.9253] },
+  { "code": "CH", "name": "瑞士", "continent": "europe", "hostYears": [1954], "coords": [46.8182, 8.2275] },
+  { "code": "SE", "name": "瑞典", "continent": "europe", "hostYears": [1958], "coords": [60.1282, 18.6435] },
+  { "code": "CL", "name": "智利", "continent": "south-america", "hostYears": [1962], "coords": [-35.6751, -71.543] },
+  { "code": "GB-ENG", "name": "英格兰", "continent": "europe", "hostYears": [1966], "coords": [55.3781, -3.436] },
+  { "code": "MX", "name": "墨西哥", "continent": "north-america", "hostYears": [1970, 1986, 2026], "coords": [23.6345, -102.5528] },
+  { "code": "DE-W", "name": "西德", "continent": "europe", "hostYears": [1974], "coords": [51.1657, 10.4515] },
+  { "code": "AR", "name": "阿根廷", "continent": "south-america", "hostYears": [1978], "coords": [-38.4161, -63.6167] },
+  { "code": "ES", "name": "西班牙", "continent": "europe", "hostYears": [1982], "coords": [40.4637, -3.7492] },
+  { "code": "US", "name": "美国", "continent": "north-america", "hostYears": [1994, 2026], "coords": [37.0902, -95.7129] },
+  { "code": "KR", "name": "韩国", "continent": "asia", "hostYears": [2002], "coords": [35.9078, 127.7669] },
+  { "code": "JP", "name": "日本", "continent": "asia", "hostYears": [2002], "coords": [36.2048, 138.2529] },
+  { "code": "DE", "name": "德国", "continent": "europe", "hostYears": [2006], "coords": [51.1657, 10.4515] },
+  { "code": "ZA", "name": "南非", "continent": "africa", "hostYears": [2010], "coords": [-30.5595, 22.9375] },
+  { "code": "RU", "name": "俄罗斯", "continent": "europe", "hostYears": [2018], "coords": [61.524, 105.3188] },
+  { "code": "QA", "name": "卡塔尔", "continent": "asia", "hostYears": [2022], "coords": [25.3548, 51.1839] },
+  { "code": "CA", "name": "加拿大", "continent": "north-america", "hostYears": [2026], "coords": [56.1304, -106.3468] }
+]

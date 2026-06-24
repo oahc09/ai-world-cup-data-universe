@@ -1,0 +1,322 @@
+[
+  {
+    "code": "BR",
+    "name": "巴西",
+    "continent": "south-america",
+    "attack": 92,
+    "defense": 80,
+    "midfield": 88,
+    "speed": 85,
+    "experience": 95,
+    "homeAdvantage": 70,
+    "worldCupTitles": 5,
+    "history": {
+      "2002": {
+        "attack": 95,
+        "defense": 82,
+        "midfield": 90,
+        "speed": 88,
+        "experience": 90,
+        "homeAdvantage": 75,
+        "worldCupTitles": 5
+      },
+      "2014": {
+        "attack": 88,
+        "defense": 75,
+        "midfield": 82,
+        "speed": 86,
+        "experience": 92,
+        "homeAdvantage": 90,
+        "worldCupTitles": 5
+      }
+    }
+  },
+  {
+    "code": "AR",
+    "name": "阿根廷",
+    "continent": "south-america",
+    "attack": 88,
+    "defense": 82,
+    "midfield": 85,
+    "speed": 84,
+    "experience": 90,
+    "homeAdvantage": 75,
+    "worldCupTitles": 3,
+    "history": {
+      "1986": {
+        "attack": 90,
+        "defense": 78,
+        "midfield": 85,
+        "speed": 82,
+        "experience": 85,
+        "homeAdvantage": 70,
+        "worldCupTitles": 2
+      },
+      "2022": {
+        "attack": 89,
+        "defense": 85,
+        "midfield": 86,
+        "speed": 84,
+        "experience": 92,
+        "homeAdvantage": 72,
+        "worldCupTitles": 3
+      }
+    }
+  },
+  {
+    "code": "DE",
+    "name": "德国",
+    "continent": "europe",
+    "attack": 85,
+    "defense": 88,
+    "midfield": 86,
+    "speed": 83,
+    "experience": 92,
+    "homeAdvantage": 75,
+    "worldCupTitles": 4,
+    "history": {
+      "2014": {
+        "attack": 88,
+        "defense": 90,
+        "midfield": 88,
+        "speed": 85,
+        "experience": 90,
+        "homeAdvantage": 70,
+        "worldCupTitles": 4
+      },
+      "1990": {
+        "attack": 84,
+        "defense": 89,
+        "midfield": 82,
+        "speed": 80,
+        "experience": 88,
+        "homeAdvantage": 68,
+        "worldCupTitles": 3
+      }
+    }
+  },
+  {
+    "code": "IT",
+    "name": "意大利",
+    "continent": "europe",
+    "attack": 80,
+    "defense": 90,
+    "midfield": 82,
+    "speed": 78,
+    "experience": 90,
+    "homeAdvantage": 72,
+    "worldCupTitles": 4,
+    "history": {
+      "2006": {
+        "attack": 82,
+        "defense": 92,
+        "midfield": 84,
+        "speed": 76,
+        "experience": 88,
+        "homeAdvantage": 70,
+        "worldCupTitles": 4
+      },
+      "1982": {
+        "attack": 78,
+        "defense": 88,
+        "midfield": 80,
+        "speed": 75,
+        "experience": 85,
+        "homeAdvantage": 68,
+        "worldCupTitles": 3
+      }
+    }
+  },
+  {
+    "code": "FR",
+    "name": "法国",
+    "continent": "europe",
+    "attack": 87,
+    "defense": 84,
+    "midfield": 88,
+    "speed": 86,
+    "experience": 85,
+    "homeAdvantage": 78,
+    "worldCupTitles": 2,
+    "history": {
+      "2018": {
+        "attack": 89,
+        "defense": 85,
+        "midfield": 87,
+        "speed": 88,
+        "experience": 80,
+        "homeAdvantage": 72,
+        "worldCupTitles": 2
+      },
+      "1998": {
+        "attack": 84,
+        "defense": 88,
+        "midfield": 85,
+        "speed": 82,
+        "experience": 82,
+        "homeAdvantage": 85,
+        "worldCupTitles": 1
+      }
+    }
+  },
+  {
+    "code": "EN",
+    "name": "英格兰",
+    "continent": "europe",
+    "attack": 82,
+    "defense": 80,
+    "midfield": 78,
+    "speed": 85,
+    "experience": 80,
+    "homeAdvantage": 85,
+    "worldCupTitles": 1,
+    "history": {
+      "1966": {
+        "attack": 80,
+        "defense": 82,
+        "midfield": 76,
+        "speed": 78,
+        "experience": 78,
+        "homeAdvantage": 90,
+        "worldCupTitles": 1
+      },
+      "2018": {
+        "attack": 83,
+        "defense": 78,
+        "midfield": 76,
+        "speed": 84,
+        "experience": 72,
+        "homeAdvantage": 70,
+        "worldCupTitles": 1
+      }
+    }
+  },
+  {
+    "code": "ES",
+    "name": "西班牙",
+    "continent": "europe",
+    "attack": 84,
+    "defense": 82,
+    "midfield": 90,
+    "speed": 80,
+    "experience": 82,
+    "homeAdvantage": 80,
+    "worldCupTitles": 1,
+    "history": {
+      "2010": {
+        "attack": 86,
+        "defense": 85,
+        "midfield": 92,
+        "speed": 78,
+        "experience": 80,
+        "homeAdvantage": 75,
+        "worldCupTitles": 1
+      },
+      "2008": {
+        "attack": 85,
+        "defense": 83,
+        "midfield": 90,
+        "speed": 79,
+        "experience": 78,
+        "homeAdvantage": 72,
+        "worldCupTitles": 0
+      }
+    }
+  },
+  {
+    "code": "NL",
+    "name": "荷兰",
+    "continent": "europe",
+    "attack": 86,
+    "defense": 78,
+    "midfield": 84,
+    "speed": 87,
+    "experience": 75,
+    "homeAdvantage": 70,
+    "worldCupTitles": 0,
+    "history": {
+      "1974": {
+        "attack": 90,
+        "defense": 80,
+        "midfield": 88,
+        "speed": 86,
+        "experience": 72,
+        "homeAdvantage": 68,
+        "worldCupTitles": 0
+      },
+      "2010": {
+        "attack": 85,
+        "defense": 80,
+        "midfield": 83,
+        "speed": 85,
+        "experience": 74,
+        "homeAdvantage": 70,
+        "worldCupTitles": 0
+      }
+    }
+  },
+  {
+    "code": "UY",
+    "name": "乌拉圭",
+    "continent": "south-america",
+    "attack": 80,
+    "defense": 82,
+    "midfield": 76,
+    "speed": 79,
+    "experience": 78,
+    "homeAdvantage": 72,
+    "worldCupTitles": 2,
+    "history": {
+      "1930": {
+        "attack": 82,
+        "defense": 80,
+        "midfield": 75,
+        "speed": 76,
+        "experience": 70,
+        "homeAdvantage": 88,
+        "worldCupTitles": 1
+      },
+      "1950": {
+        "attack": 80,
+        "defense": 82,
+        "midfield": 76,
+        "speed": 78,
+        "experience": 75,
+        "homeAdvantage": 70,
+        "worldCupTitles": 2
+      }
+    }
+  },
+  {
+    "code": "BE",
+    "name": "比利时",
+    "continent": "europe",
+    "attack": 85,
+    "defense": 80,
+    "midfield": 83,
+    "speed": 84,
+    "experience": 70,
+    "homeAdvantage": 68,
+    "worldCupTitles": 0,
+    "history": {
+      "2018": {
+        "attack": 88,
+        "defense": 82,
+        "midfield": 85,
+        "speed": 86,
+        "experience": 72,
+        "homeAdvantage": 65,
+        "worldCupTitles": 0
+      },
+      "1986": {
+        "attack": 78,
+        "defense": 76,
+        "midfield": 74,
+        "speed": 75,
+        "experience": 70,
+        "homeAdvantage": 68,
+        "worldCupTitles": 0
+      }
+    }
+  }
+]
