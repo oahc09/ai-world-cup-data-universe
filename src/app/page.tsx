@@ -8,6 +8,7 @@ import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
 import { DetailCard } from '@/components/timeline/DetailCard'
 import { TeamRadarView } from '@/components/radar/TeamRadarView'
 import { ChampionPathView } from '@/components/path/ChampionPathView'
+import { HostMapView } from '@/components/map/HostMapView'
 import { useWebGLSupport } from '@/hooks/useWebGLSupport'
 
 export default function Home() {
@@ -34,7 +35,7 @@ export default function Home() {
         )}
         {view === 'radar' && <TeamRadarView />}
         {view === 'path' && <ChampionPathView />}
-        {view === 'map' && <div className="p-8 text-white/50">历届地图（Task 11 实现）</div>}
+        {view === 'map' && <HostMapView />}
       </div>
 
       {view === 'timeline' && selectedYear && (
