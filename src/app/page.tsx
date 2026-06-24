@@ -11,6 +11,7 @@ import { TeamRadarView } from '@/components/radar/TeamRadarView'
 import { ChampionPathView } from '@/components/path/ChampionPathView'
 import { HostMapView } from '@/components/map/HostMapView'
 import { useWebGLSupport } from '@/hooks/useWebGLSupport'
+import { ShareModal } from '@/components/share/ShareModal'
 
 export default function Home() {
   const webglSupported = useWebGLSupport()
@@ -46,6 +47,14 @@ export default function Home() {
           year={selectedYear}
           onClose={() => setSelectedYear(null)}
           onNavigate={setSelectedYear}
+        />
+      )}
+
+      {shareOpen && (
+        <ShareModal
+          targetSelector="main"
+          currentUrl={typeof window !== 'undefined' ? window.location.href : 'https://world-cup-data-universe.app'}
+          onClose={() => setShareOpen(false)}
         />
       )}
     </main>
