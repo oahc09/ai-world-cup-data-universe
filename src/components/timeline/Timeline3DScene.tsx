@@ -8,6 +8,7 @@ import { TimelineNode } from './TimelineNode'
 import { useTimelineFocus } from '@/hooks/useTimelineFocus'
 import { useAutoRotate } from '@/hooks/useAutoRotate'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import { useGyroscope } from '@/hooks/useGyroscope'
 
 const SPIRAL_CONFIG = { radius: 8, height: 30, turns: 3 }
 
@@ -71,13 +72,26 @@ function SceneContent({ selectedYear, onSelectYear, autoRotateEnabled }: Props) 
 }
 
 export function Timeline3DScene(props: Props) {
+  const isMobile = useIsMobile()
+  const gyro = useGyroscope()
+
   return (
-    <Canvas
-      camera={{ position: [12, 0, 12], fov: 60 }}
-      gl={{ antialias: true, preserveDrawingBuffer: true }}
-      className="w-full h-full"
-    >
-      <SceneContent {...props} />
-    </Canvas>
+    <div className="relative w-full h-full">
+      <Canvas
+        camera={{ position: [12, 0, 12], fov: 60 }}
+        gl={{ antialias: true, preserveDrawingBuffer: true }}
+        className="w-full h-full"
+      >
+        <SceneContent {...props} />
+      </Canvas>
+      {isMobile && gyro.supported && (
+        <button
+          onClick={gyro.toggle}
+          className="absolute bottom-4 right-4 px-3 py-2 rounded bg-black/60 text-xs text-white border border-white/20"
+        >
+          {gyro.enabled ? '关闭陀螺仪' : '开启陀螺仪'}
+        </button>
+      )}
+    </div>
   )
 }
