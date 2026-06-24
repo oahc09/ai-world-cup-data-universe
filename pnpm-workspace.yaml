@@ -1,0 +1,6 @@
+allowBuilds:
+  '@react-spring/core': true
+  esbuild: true
+onlyBuiltDependencies:
+  - "@react-spring/core"
+  - esbuild
