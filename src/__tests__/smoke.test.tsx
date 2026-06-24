@@ -5,6 +5,6 @@ import Home from '@/app/page'
 describe('Home', () => {
   it('renders app title', () => {
     render(<Home />)
-    expect(screen.getByText('绿茵数据宇宙')).toBeInTheDocument()
+    expect(screen.getAllByText('绿茵数据宇宙').length).toBeGreaterThan(0)
   })
 })

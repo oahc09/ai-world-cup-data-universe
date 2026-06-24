@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { useViewState } from '@/hooks/useViewState'
+import { TopNav } from '@/components/shell/TopNav'
 import { Timeline3DScene } from '@/components/timeline/Timeline3DScene'
 import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
 import { DetailCard } from '@/components/timeline/DetailCard'
@@ -8,23 +10,32 @@ import { useWebGLSupport } from '@/hooks/useWebGLSupport'
 
 export default function Home() {
   const webglSupported = useWebGLSupport()
-  const [selectedYear, setSelectedYear] = useState<number | null>(null)
+  const { view, setView, selectedYear, setSelectedYear } = useViewState()
+  const [shareOpen, setShareOpen] = useState(false)
 
   return (
     <main className="min-h-screen bg-black">
       <h1 className="sr-only">绿茵数据宇宙</h1>
-      <div className="w-full h-screen">
-        {webglSupported ? (
-          <Timeline3DScene
-            selectedYear={selectedYear}
-            onSelectYear={setSelectedYear}
-            autoRotateEnabled={true}
-          />
-        ) : (
-          <TimelineFallback2D onSelectYear={setSelectedYear} />
+      <TopNav currentView={view} onViewChange={setView} onShare={() => setShareOpen(true)} />
+
+      <div className="w-full h-screen pt-14">
+        {view === 'timeline' && (
+          webglSupported ? (
+            <Timeline3DScene
+              selectedYear={selectedYear}
+              onSelectYear={setSelectedYear}
+              autoRotateEnabled={true}
+            />
+          ) : (
+            <TimelineFallback2D onSelectYear={setSelectedYear} />
+          )
         )}
+        {view === 'radar' && <div className="p-8 text-white/50">球队雷达（Task 9 实现）</div>}
+        {view === 'path' && <div className="p-8 text-white/50">夺冠路径（Task 10 实现）</div>}
+        {view === 'map' && <div className="p-8 text-white/50">历届地图（Task 11 实现）</div>}
       </div>
-      {selectedYear && (
+
+      {view === 'timeline' && selectedYear && (
         <DetailCard
           year={selectedYear}
           onClose={() => setSelectedYear(null)}
