@@ -7,6 +7,7 @@ import { spiralPosition } from '@/lib/spiral'
 import { TimelineNode } from './TimelineNode'
 import { useTimelineFocus } from '@/hooks/useTimelineFocus'
 import { useAutoRotate } from '@/hooks/useAutoRotate'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 const SPIRAL_CONFIG = { radius: 8, height: 30, turns: 3 }
 
@@ -17,13 +18,17 @@ interface Props {
 }
 
 function SceneContent({ selectedYear, onSelectYear, autoRotateEnabled }: Props) {
+  const isMobile = useIsMobile()
   const { camera } = useThree()
-  const [autoRotate, setAutoRotate] = useState(autoRotateEnabled)
+  const [autoRotate, setAutoRotate] = useState(isMobile ? false : autoRotateEnabled)
   const orbitRef = useRef<any>(null)
 
   const selectedIndex = (worldcups as WorldCup[]).findIndex((w) => w.year === selectedYear)
   const { focusOn } = useTimelineFocus(camera, orbitRef.current, worldcups.length)
   const { pauseTemporarily } = useAutoRotate(orbitRef.current, autoRotate)
+
+  const starCount = isMobile ? 500 : 2000
+  const effectiveAutoRotate = isMobile ? false : autoRotate
 
   useEffect(() => {
     if (selectedIndex >= 0 && orbitRef.current) {
@@ -37,7 +42,7 @@ function SceneContent({ selectedYear, onSelectYear, autoRotateEnabled }: Props) 
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={1} />
       <pointLight position={[-10, -10, -10]} intensity={0.5} color="#4a9eff" />
-      <Stars radius={50} depth={50} count={2000} factor={4} fade />
+      <Stars radius={50} depth={50} count={starCount} factor={4} fade />
 
       {(worldcups as WorldCup[]).map((w, i) => (
         <TimelineNode
@@ -53,8 +58,8 @@ function SceneContent({ selectedYear, onSelectYear, autoRotateEnabled }: Props) 
         ref={orbitRef}
         enablePan={false}
         minDistance={5}
-        maxDistance={30}
-        autoRotate={autoRotate}
+        maxDistance={isMobile ? 40 : 30}
+        autoRotate={effectiveAutoRotate}
         autoRotateSpeed={2}
         enableDamping
         dampingFactor={0.05}

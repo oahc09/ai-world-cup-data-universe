@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { useFrame, ThreeEvent } from '@react-three/fiber'
 import * as THREE from 'three'
 import type { WorldCup } from '@/lib/data-types'
+import { useIsMobile } from '@/hooks/useIsMobile'
 
 interface Props {
   data: WorldCup
@@ -13,6 +14,8 @@ interface Props {
 export function TimelineNode({ data, position, onSelect, isFocused }: Props) {
   const meshRef = useRef<THREE.Mesh>(null)
   const [hovered, setHovered] = useState(false)
+  const isMobile = useIsMobile()
+  const segments = isMobile ? 16 : 32
   const targetScale = isFocused ? data.nodeSize * 1.5 : hovered ? data.nodeSize * 1.2 : data.nodeSize
 
   useFrame(() => {
@@ -46,7 +49,7 @@ export function TimelineNode({ data, position, onSelect, isFocused }: Props) {
       onPointerOut={handlePointerOut}
       onClick={handleClick}
     >
-      <sphereGeometry args={[0.5, 32, 32]} />
+      <sphereGeometry args={[0.5, segments, segments]} />
       <meshStandardMaterial
         color={data.nodeColor}
         emissive={data.nodeColor}
