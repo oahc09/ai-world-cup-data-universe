@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useViewState } from '@/hooks/useViewState'
 import { TopNav } from '@/components/shell/TopNav'
+import { ViewTransition } from '@/components/shell/ViewTransition'
 import { Timeline3DScene } from '@/components/timeline/Timeline3DScene'
 import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
 import { DetailCard } from '@/components/timeline/DetailCard'
@@ -22,20 +23,22 @@ export default function Home() {
       <TopNav currentView={view} onViewChange={setView} onShare={() => setShareOpen(true)} />
 
       <div className="w-full h-screen pt-14">
-        {view === 'timeline' && (
-          webglSupported ? (
-            <Timeline3DScene
-              selectedYear={selectedYear}
-              onSelectYear={setSelectedYear}
-              autoRotateEnabled={true}
-            />
-          ) : (
-            <TimelineFallback2D onSelectYear={setSelectedYear} />
-          )
-        )}
-        {view === 'radar' && <TeamRadarView />}
-        {view === 'path' && <ChampionPathView />}
-        {view === 'map' && <HostMapView />}
+        <ViewTransition viewKey={view}>
+          {view === 'timeline' && (
+            webglSupported ? (
+              <Timeline3DScene
+                selectedYear={selectedYear}
+                onSelectYear={setSelectedYear}
+                autoRotateEnabled={true}
+              />
+            ) : (
+              <TimelineFallback2D onSelectYear={setSelectedYear} />
+            )
+          )}
+          {view === 'radar' && <TeamRadarView />}
+          {view === 'path' && <ChampionPathView />}
+          {view === 'map' && <HostMapView />}
+        </ViewTransition>
       </div>
 
       {view === 'timeline' && selectedYear && (
