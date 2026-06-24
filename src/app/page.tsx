@@ -6,6 +6,7 @@ import { TopNav } from '@/components/shell/TopNav'
 import { Timeline3DScene } from '@/components/timeline/Timeline3DScene'
 import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
 import { DetailCard } from '@/components/timeline/DetailCard'
+import { TeamRadarView } from '@/components/radar/TeamRadarView'
 import { useWebGLSupport } from '@/hooks/useWebGLSupport'
 
 export default function Home() {
@@ -30,7 +31,7 @@ export default function Home() {
             <TimelineFallback2D onSelectYear={setSelectedYear} />
           )
         )}
-        {view === 'radar' && <div className="p-8 text-white/50">球队雷达（Task 9 实现）</div>}
+        {view === 'radar' && <TeamRadarView />}
         {view === 'path' && <div className="p-8 text-white/50">夺冠路径（Task 10 实现）</div>}
         {view === 'map' && <div className="p-8 text-white/50">历届地图（Task 11 实现）</div>}
       </div>
