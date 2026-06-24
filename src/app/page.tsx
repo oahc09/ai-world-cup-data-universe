@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Timeline3DScene } from '@/components/timeline/Timeline3DScene'
 import { TimelineFallback2D } from '@/components/timeline/TimelineFallback2D'
+import { DetailCard } from '@/components/timeline/DetailCard'
 import { useWebGLSupport } from '@/hooks/useWebGLSupport'
 
 export default function Home() {
@@ -23,6 +24,13 @@ export default function Home() {
           <TimelineFallback2D onSelectYear={setSelectedYear} />
         )}
       </div>
+      {selectedYear && (
+        <DetailCard
+          year={selectedYear}
+          onClose={() => setSelectedYear(null)}
+          onNavigate={setSelectedYear}
+        />
+      )}
     </main>
   )
 }
