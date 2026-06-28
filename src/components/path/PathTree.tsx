@@ -14,31 +14,59 @@ export function PathTree({ path }: Props) {
     const treeData = buildTreeData(path)
     return {
       tooltip: {
+        backgroundColor: 'rgba(20,20,30,0.95)',
+        borderColor: 'rgba(255,213,79,0.3)',
+        textStyle: { color: '#fff' },
         formatter: (params: any) => {
           const m = params.data?.match
           if (!m) return params.name
-          const events = m.events.map((e: any) => `${e.minute}' ${e.type}: ${e.player}`).join('<br/>')
-          return `${m.round}<br/>${path.teamName} ${m.score} ${m.opponent}<br/>${events || '无关键事件'}`
+          const events = m.events.map((e: any) => `${e.minute}' ${e.type === 'penalty' ? '⚽(点)' : '⚽'} ${e.player}`).join('<br/>')
+          return `<div style="font-weight:bold;font-size:14px;color:#ffd54f;margin-bottom:4px">${m.round}</div>
+            <div style="font-size:16px;font-weight:bold">${path.teamName} ${m.score} ${m.opponent}</div>
+            <div style="margin-top:6px;color:#ccc;font-size:12px">${events || '无关键事件'}</div>`
         },
       },
       series: [{
         type: 'tree',
         data: [treeData],
-        top: '5%',
-        left: '10%',
-        bottom: '5%',
-        right: '20%',
-        symbolSize: 12,
+        top: '3%',
+        left: '5%',
+        bottom: '3%',
+        right: '15%',
+        symbolSize: 14,
+        symbol: 'circle',
         orientation: 'LR',
+        roam: true,
+        lineStyle: {
+          color: '#00e676',
+          width: 2,
+          curveness: 0.5,
+        },
         label: {
           position: 'left',
           verticalAlign: 'middle',
           align: 'right',
-          fontSize: 12,
-          color: '#ccc',
+          fontSize: 13,
+          color: '#e0e0e0',
+          fontWeight: 500,
+          distance: 8,
           formatter: (params: any) => {
             const m = params.data?.match
-            return m ? `${m.round}\n${m.score}` : params.name
+            if (!m) return params.name
+            const resultColor = m.result === 'win' ? '#00e676' : m.result === 'draw' ? '#ffd54f' : '#ff5252'
+            return `{round|${m.round}}\n{score|${m.score}  vs  ${m.opponent}}`
+          },
+          rich: {
+            round: {
+              fontSize: 13,
+              color: '#fff',
+              fontWeight: 'bold',
+              padding: [0, 0, 2, 0],
+            },
+            score: {
+              fontSize: 11,
+              color: '#aaa',
+            },
           },
         },
         leaves: {
@@ -46,12 +74,46 @@ export function PathTree({ path }: Props) {
             position: 'right',
             verticalAlign: 'middle',
             align: 'left',
+            fontWeight: 'bold',
+            fontSize: 14,
+            color: '#ffd54f',
+            distance: 8,
+            formatter: (params: any) => {
+              const m = params.data?.match
+              if (!m) return params.name
+              return `{final|🏆 ${m.round}}\n{result|${path.teamName} ${m.score} ${m.opponent}}`
+            },
+            rich: {
+              final: {
+                fontSize: 14,
+                color: '#ffd54f',
+                fontWeight: 'bold',
+                padding: [0, 0, 2, 0],
+              },
+              result: {
+                fontSize: 12,
+                color: '#ccc',
+              },
+            },
           },
+          itemStyle: {
+            color: '#ffd54f',
+            shadowBlur: 15,
+            shadowColor: '#ffd54f',
+          },
+        },
+        itemStyle: {
+          color: '#00e676',
+          borderColor: '#fff',
+          borderWidth: 2,
+          shadowBlur: 8,
+          shadowColor: 'rgba(0,230,118,0.5)',
         },
         emphasis: { focus: 'descendant' },
         expandAndCollapse: false,
-        animationDuration: 550,
-        animationDurationUpdate: 750,
+        animationDuration: 800,
+        animationDurationUpdate: 1000,
+        initialTreeDepth: 7,
       }],
     }
   }

@@ -30,13 +30,20 @@ function buildHash(state: ViewState): string {
 }
 
 export function useViewState() {
-  const initial = typeof window !== 'undefined' ? parseHash() : {}
-  const [view, setViewState] = useState<ViewMode>(initial.view || 'timeline')
-  const [selectedYear, setSelectedYear] = useState<number | null>(initial.selectedYear ?? null)
-  const [selectedTeam, setSelectedTeam] = useState<string | null>(initial.selectedTeam ?? null)
-  const [selectedTeam2, setSelectedTeam2] = useState<string | null>(initial.selectedTeam2 ?? null)
+  const [view, setViewState] = useState<ViewMode>('timeline')
+  const [selectedYear, setSelectedYear] = useState<number | null>(null)
+  const [selectedTeam, setSelectedTeam] = useState<string | null>(null)
+  const [selectedTeam2, setSelectedTeam2] = useState<string | null>(null)
 
   const setView = useCallback((v: ViewMode) => setViewState(v), [])
+
+  useEffect(() => {
+    const parsed = parseHash()
+    if (parsed.view) setViewState(parsed.view)
+    if (parsed.selectedYear !== undefined) setSelectedYear(parsed.selectedYear)
+    if (parsed.selectedTeam !== undefined) setSelectedTeam(parsed.selectedTeam)
+    if (parsed.selectedTeam2 !== undefined) setSelectedTeam2(parsed.selectedTeam2)
+  }, [])
 
   useEffect(() => {
     const onHashChange = () => {

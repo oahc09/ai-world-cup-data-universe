@@ -13,18 +13,16 @@ describe('ChampionPathView', () => {
     expect(screen.getByText(/年份/)).toBeInTheDocument()
   })
 
-  it('renders 7 round nodes for selected path', () => {
+  it('renders champion header with team name and year', () => {
     render(<ChampionPathView />)
-    // The tree data is built from championPaths.json which has 7 matches per path
-    // Check that the view title shows the team name and year
-    const title = screen.getByText(/夺冠路径/)
-    expect(title).toBeInTheDocument()
+    expect(screen.getAllByText('阿根廷').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('1986').length).toBeGreaterThan(0)
   })
 
-  it('highlights final node with trophy', () => {
+  it('shows stats panel with goals and wins', () => {
     render(<ChampionPathView />)
-    // The PathTree component builds tree data with final match highlighted
-    // Just verify the component renders without error
-    expect(screen.getByText(/夺冠路径/)).toBeInTheDocument()
+    expect(screen.getByText('进球')).toBeInTheDocument()
+    expect(screen.getByText('胜场')).toBeInTheDocument()
+    expect(screen.getByText('最佳射手')).toBeInTheDocument()
   })
 })
