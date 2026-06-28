@@ -14,10 +14,10 @@ export function TeamSelector({ value, onChange, label }: Props) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-white/10 border border-white/20 rounded px-3 py-2 text-white"
+        className="bg-zinc-800 border border-white/20 rounded px-3 py-2 text-white"
       >
         {(teams as unknown as Team[]).map((t) => (
-          <option key={t.code} value={t.code}>{t.name}</option>
+          <option key={t.code} value={t.code} className="bg-zinc-800 text-white">{t.name}</option>
         ))}
       </select>
     </label>

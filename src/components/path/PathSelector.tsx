@@ -20,10 +20,10 @@ export function PathSelector({ teamCode, year, onTeamChange, onYearChange }: Pro
         <select
           value={teamCode}
           onChange={(e) => onTeamChange(e.target.value)}
-          className="bg-white/10 border border-white/20 rounded px-3 py-2"
+          className="bg-zinc-800 text-white border border-white/20 rounded px-3 py-2"
         >
           {teams.map(([code, name]) => (
-            <option key={code} value={code}>{name}</option>
+            <option key={code} value={code} className="bg-zinc-800 text-white">{name}</option>
           ))}
         </select>
       </label>
@@ -32,10 +32,10 @@ export function PathSelector({ teamCode, year, onTeamChange, onYearChange }: Pro
         <select
           value={year}
           onChange={(e) => onYearChange(Number(e.target.value))}
-          className="bg-white/10 border border-white/20 rounded px-3 py-2"
+          className="bg-zinc-800 text-white border border-white/20 rounded px-3 py-2"
         >
           {years.map((y) => (
-            <option key={y} value={y}>{y}</option>
+            <option key={y} value={y} className="bg-zinc-800 text-white">{y}</option>
           ))}
         </select>
       </label>

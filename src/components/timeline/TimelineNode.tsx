@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { useFrame, ThreeEvent } from '@react-three/fiber'
+import { Text } from '@react-three/drei'
 import * as THREE from 'three'
 import type { WorldCup } from '@/lib/data-types'
 import { useIsMobile } from '@/hooks/useIsMobile'
@@ -42,21 +43,33 @@ export function TimelineNode({ data, position, onSelect, isFocused }: Props) {
   }
 
   return (
-    <mesh
-      ref={meshRef as any}
-      position={position}
-      onPointerOver={handlePointerOver}
-      onPointerOut={handlePointerOut}
-      onClick={handleClick}
-    >
-      <sphereGeometry args={[0.5, segments, segments]} />
-      <meshStandardMaterial
-        color={data.nodeColor}
-        emissive={data.nodeColor}
-        emissiveIntensity={hovered || isFocused ? 1.5 : 0.6}
-        roughness={0.3}
-        metalness={0.5}
-      />
-    </mesh>
+    <group position={position}>
+      <mesh
+        ref={meshRef as any}
+        onPointerOver={handlePointerOver}
+        onPointerOut={handlePointerOut}
+        onClick={handleClick}
+      >
+        <sphereGeometry args={[0.5, segments, segments]} />
+        <meshStandardMaterial
+          color={data.nodeColor}
+          emissive={data.nodeColor}
+          emissiveIntensity={hovered || isFocused ? 1.5 : 0.6}
+          roughness={0.3}
+          metalness={0.5}
+        />
+      </mesh>
+      <Text
+        position={[0.8, 0, 0]}
+        fontSize={0.35}
+        color="#ffffff"
+        anchorX="left"
+        anchorY="middle"
+        outlineWidth={0.02}
+        outlineColor="#000000"
+      >
+        {data.year}
+      </Text>
+    </group>
   )
 }

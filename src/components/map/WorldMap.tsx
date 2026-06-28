@@ -44,6 +44,15 @@ export function WorldMap({ onSelectHost }: Props) {
           series: [{
             type: 'scatter',
             coordinateSystem: 'geo',
+            label: {
+              show: true,
+              formatter: '{b}',
+              position: 'right',
+              color: '#ffe082',
+              fontSize: 12,
+              textBorderColor: '#000',
+              textBorderWidth: 2,
+            },
             data: data.map((d) => ({
               name: d.name,
               value: [...d.coords, d.value],

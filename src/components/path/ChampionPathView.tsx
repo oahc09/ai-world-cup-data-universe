@@ -22,17 +22,19 @@ export function ChampionPathView() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col gap-4 p-6">
+    <div className="w-full h-full flex flex-col gap-4 p-6 overflow-hidden">
       <PathSelector
         teamCode={teamCode}
         year={year}
         onTeamChange={handleTeamChange}
         onYearChange={setYear}
       />
-      <div className="text-2xl font-bold">
+      <div className="text-2xl font-bold flex-shrink-0">
         {path.teamName} · {path.year} 夺冠路径
       </div>
-      <PathTree path={path} />
+      <div className="flex-1 min-h-0">
+        <PathTree path={path} />
+      </div>
     </div>
   )
 }

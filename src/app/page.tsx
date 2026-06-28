@@ -19,11 +19,13 @@ export default function Home() {
   const [shareOpen, setShareOpen] = useState(false)
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-black text-white">
       <h1 className="sr-only">绿茵数据宇宙</h1>
-      <TopNav currentView={view} onViewChange={setView} onShare={() => setShareOpen(true)} />
+      <div className="fixed top-0 left-0 right-0 z-40">
+        <TopNav currentView={view} onViewChange={setView} onShare={() => setShareOpen(true)} />
+      </div>
 
-      <div className="w-full h-screen pt-14">
+      <div className="pt-14 h-[calc(100vh-56px)]">
         <ViewTransition viewKey={view}>
           {view === 'timeline' && (
             webglSupported ? (

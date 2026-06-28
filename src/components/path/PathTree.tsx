@@ -63,7 +63,7 @@ export function PathTree({ path }: Props) {
     })
   }, [path])
 
-  return <div ref={ref} className="w-full h-[600px]" />
+  return <div ref={ref} className="w-full h-full" />
 }
 
 function buildTreeData(path: ChampionPath) {
