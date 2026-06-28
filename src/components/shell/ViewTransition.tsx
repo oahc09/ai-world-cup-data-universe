@@ -23,7 +23,7 @@ export function ViewTransition({ viewKey, children }: Props) {
   return (
     <div
       key={displayKey}
-      className={fade ? 'animate-fade-in' : 'opacity-0 transition-opacity duration-300'}
+      className={`w-full h-full ${fade ? 'animate-fade-in' : 'opacity-0 transition-opacity duration-300'}`}
     >
       {children}
     </div>

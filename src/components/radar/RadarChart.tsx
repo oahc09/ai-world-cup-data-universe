@@ -21,44 +21,72 @@ export function RadarChart({ team1, team2 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const chartRef = useRef<echarts.ECharts | null>(null)
 
+  const getOption = () => ({
+    tooltip: {},
+    legend: { data: [team1.name, team2.name], bottom: 0 },
+    radar: {
+      indicator: DIMENSIONS,
+      shape: 'polygon',
+      splitNumber: 5,
+      axisName: { color: '#ccc' },
+      splitLine: { lineStyle: { color: 'rgba(255,255,255,0.1)' } },
+      splitArea: { areaStyle: { color: ['rgba(0,230,118,0.02)', 'rgba(255,213,79,0.02)'] } },
+    },
+    series: [{
+      type: 'radar',
+      data: [
+        {
+          value: DIMENSIONS.map((d) => team1[d.key]),
+          name: team1.name,
+          itemStyle: { color: TEAM_COLORS.home },
+          areaStyle: { opacity: 0.3 },
+        },
+        {
+          value: DIMENSIONS.map((d) => team2[d.key]),
+          name: team2.name,
+          itemStyle: { color: TEAM_COLORS.away },
+          areaStyle: { opacity: 0.3 },
+        },
+      ],
+    }],
+  })
+
   useEffect(() => {
     if (!ref.current) return
-    chartRef.current = echarts.init(ref.current, 'dark')
-    return () => chartRef.current?.dispose()
+    const el = ref.current
+
+    const tryInit = () => {
+      if (chartRef.current) return true
+      if (el.clientWidth === 0 || el.clientHeight === 0) return false
+      chartRef.current = echarts.init(el, 'dark')
+      chartRef.current.setOption(getOption())
+      return true
+    }
+
+    if (!tryInit()) {
+      const ro = new ResizeObserver(() => {
+        if (tryInit()) ro.disconnect()
+      })
+      ro.observe(el)
+      return () => ro.disconnect()
+    }
+
+    const handleResize = () => chartRef.current?.resize()
+    window.addEventListener('resize', handleResize)
+    const ro = new ResizeObserver(() => chartRef.current?.resize())
+    ro.observe(el)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      ro.disconnect()
+      chartRef.current?.dispose()
+      chartRef.current = null
+    }
   }, [])
 
   useEffect(() => {
-    if (!chartRef.current) return
-    chartRef.current.setOption({
-      tooltip: {},
-      legend: { data: [team1.name, team2.name], bottom: 0 },
-      radar: {
-        indicator: DIMENSIONS,
-        shape: 'polygon',
-        splitNumber: 5,
-        axisName: { color: '#ccc' },
-        splitLine: { lineStyle: { color: 'rgba(255,255,255,0.1)' } },
-        splitArea: { areaStyle: { color: ['rgba(0,230,118,0.02)', 'rgba(255,213,79,0.02)'] } },
-      },
-      series: [{
-        type: 'radar',
-        data: [
-          {
-            value: DIMENSIONS.map((d) => team1[d.key]),
-            name: team1.name,
-            itemStyle: { color: TEAM_COLORS.home },
-            areaStyle: { opacity: 0.3 },
-          },
-          {
-            value: DIMENSIONS.map((d) => team2[d.key]),
-            name: team2.name,
-            itemStyle: { color: TEAM_COLORS.away },
-            areaStyle: { opacity: 0.3 },
-          },
-        ],
-      }],
-    })
+    chartRef.current?.setOption(getOption())
   }, [team1, team2])
 
-  return <div ref={ref} className="w-full h-[500px]" />
+  return <div ref={ref} className="w-full h-full min-h-[400px]" />
 }

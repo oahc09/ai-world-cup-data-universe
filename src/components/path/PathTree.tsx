@@ -10,16 +10,9 @@ export function PathTree({ path }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const chartRef = useRef<echarts.ECharts | null>(null)
 
-  useEffect(() => {
-    if (!ref.current) return
-    chartRef.current = echarts.init(ref.current, 'dark')
-    return () => chartRef.current?.dispose()
-  }, [])
-
-  useEffect(() => {
-    if (!chartRef.current) return
+  const getOption = () => {
     const treeData = buildTreeData(path)
-    chartRef.current.setOption({
+    return {
       tooltip: {
         formatter: (params: any) => {
           const m = params.data?.match
@@ -60,7 +53,44 @@ export function PathTree({ path }: Props) {
         animationDuration: 550,
         animationDurationUpdate: 750,
       }],
-    })
+    }
+  }
+
+  useEffect(() => {
+    if (!ref.current) return
+    const el = ref.current
+
+    const tryInit = () => {
+      if (chartRef.current) return true
+      if (el.clientWidth === 0 || el.clientHeight === 0) return false
+      chartRef.current = echarts.init(el, 'dark')
+      chartRef.current.setOption(getOption())
+      return true
+    }
+
+    if (!tryInit()) {
+      const ro = new ResizeObserver(() => {
+        if (tryInit()) ro.disconnect()
+      })
+      ro.observe(el)
+      return () => ro.disconnect()
+    }
+
+    const handleResize = () => chartRef.current?.resize()
+    window.addEventListener('resize', handleResize)
+    const ro = new ResizeObserver(() => chartRef.current?.resize())
+    ro.observe(el)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      ro.disconnect()
+      chartRef.current?.dispose()
+      chartRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    chartRef.current?.setOption(getOption())
   }, [path])
 
   return <div ref={ref} className="w-full h-full" />
