@@ -10,8 +10,11 @@ interface Props {
 export function WorldMap({ onSelectHost }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const chartRef = useRef<echarts.ECharts | null>(null)
+  const mountedRef = useRef(true)
+  const initStartedRef = useRef(false)
 
   useEffect(() => {
+    mountedRef.current = true
     if (!ref.current) return
     const el = ref.current
 
@@ -63,13 +66,16 @@ export function WorldMap({ onSelectHost }: Props) {
       }
     }
 
-    const tryInit = () => {
-      if (chartRef.current) return true
-      if (el.clientWidth === 0 || el.clientHeight === 0) return false
+    const initChart = () => {
+      if (chartRef.current) return
+      if (el.clientWidth === 0 || el.clientHeight === 0) return
+      if (initStartedRef.current) return
+      initStartedRef.current = true
 
       fetch('/geo/world.json')
         .then((r) => r.json())
         .then((geo) => {
+          if (!mountedRef.current || chartRef.current) return
           echarts.registerMap('world', geo)
           chartRef.current = echarts.init(el, 'dark')
           chartRef.current.setOption(buildOption())
@@ -77,27 +83,42 @@ export function WorldMap({ onSelectHost }: Props) {
             if (params.data?.host) onSelectHost?.(params.data.host)
           })
         })
-      return true
+        .catch(() => {
+          initStartedRef.current = false
+        })
     }
 
-    if (!tryInit()) {
-      const ro = new ResizeObserver(() => {
-        if (tryInit()) ro.disconnect()
-      })
-      ro.observe(el)
-      return () => ro.disconnect()
-    }
+    initChart()
 
-    const handleResize = () => chartRef.current?.resize()
-    window.addEventListener('resize', handleResize)
-    const ro = new ResizeObserver(() => chartRef.current?.resize())
+    const ro = new ResizeObserver(() => {
+      if (!chartRef.current) {
+        initChart()
+      } else {
+        try {
+          chartRef.current.resize()
+        } catch {
+          // geo resize may fail internally during transition
+        }
+      }
+    })
     ro.observe(el)
 
+    const handleResize = () => {
+      try {
+        chartRef.current?.resize()
+      } catch {
+        // ignore internal geo resize errors
+      }
+    }
+    window.addEventListener('resize', handleResize)
+
     return () => {
+      mountedRef.current = false
       window.removeEventListener('resize', handleResize)
       ro.disconnect()
       chartRef.current?.dispose()
       chartRef.current = null
+      initStartedRef.current = false
     }
   }, [onSelectHost])
 
