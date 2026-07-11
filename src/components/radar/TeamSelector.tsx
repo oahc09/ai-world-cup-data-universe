@@ -9,17 +9,17 @@ interface Props {
 
 export function TeamSelector({ value, onChange, label }: Props) {
   return (
-    <label className="flex flex-col gap-1">
-      <span className="text-xs text-white/50">{label}</span>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="bg-zinc-800 border border-white/20 rounded px-3 py-2 text-white"
-      >
-        {(teams as unknown as Team[]).map((t) => (
-          <option key={t.code} value={t.code} className="bg-zinc-800 text-white">{t.name}</option>
-        ))}
-      </select>
-    </label>
+    <label className="flex flex-col gap-1.5">
+        <span className="text-xs text-white/50 tracking-wide">{label}</span>
+        <select
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="bg-zinc-900/80 border border-emerald-400/20 rounded-lg px-3 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-400/50 focus:ring-2 focus:ring-emerald-400/20 transition-all"
+        >
+          {(teams as unknown as Team[]).map((t) => (
+            <option key={t.code} value={t.code} className="bg-zinc-900 text-white">{t.name}</option>
+          ))}
+        </select>
+      </label>
   )
 }

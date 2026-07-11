@@ -19,7 +19,7 @@ export default function Home() {
   const [shareOpen, setShareOpen] = useState(false)
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-cosmic text-white">
       <h1 className="sr-only">绿茵数据宇宙</h1>
       <div className="fixed top-0 left-0 right-0 z-40">
         <TopNav currentView={view} onViewChange={setView} onShare={() => setShareOpen(true)} />

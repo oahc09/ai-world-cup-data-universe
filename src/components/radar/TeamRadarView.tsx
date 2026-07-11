@@ -14,17 +14,25 @@ export function TeamRadarView() {
   const interpretation = useMemo(() => generateInterpretation(team1, team2), [team1, team2])
 
   return (
-    <div className="w-full h-full flex flex-col lg:flex-row gap-6 p-6">
-      <div className="lg:w-64 flex lg:flex-col gap-4">
+    <div className="w-full h-full flex flex-col lg:flex-row gap-4 p-6">
+      <div className="lg:w-64 flex lg:flex-col gap-3">
         <TeamSelector value={code1} onChange={setCode1} label="主队（绿）" />
         <TeamSelector value={code2} onChange={setCode2} label="客队（金）" />
-        <div className="p-3 rounded bg-white/5 text-xs text-white/70">
-          <p className="font-semibold mb-1">数据解读</p>
-          <p>{interpretation}</p>
+        <div className="p-4 rounded-xl glass-card text-xs text-white/70 flex-1">
+          <div className="text-[10px] text-emerald-400/70 tracking-widest uppercase mb-2">
+            📊 数据解读
+          </div>
+          <p className="leading-relaxed">{interpretation}</p>
         </div>
       </div>
-      <div className="flex-1">
-        <RadarChart team1={team1} team2={team2} />
+      <div className="flex-1 rounded-2xl glass-card p-4">
+        <div className="px-2 pb-2 flex items-center gap-2">
+          <span className="text-lg">📊</span>
+          <span className="text-sm font-semibold text-white/90">球队实力雷达对比</span>
+        </div>
+        <div className="h-[calc(100%-36px)]">
+          <RadarChart team1={team1} team2={team2} />
+        </div>
       </div>
     </div>
   )
