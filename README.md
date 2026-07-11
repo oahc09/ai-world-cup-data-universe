@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 绿茵数据宇宙 · World Cup Data Universe
 
-## Getting Started
+一个沉浸式的世界杯数据可视化 Web 应用，以 3D 螺旋时间线为核心，融合雷达对比、夺冠路径、历届地图四大视图，呈现 1930–2022 共 23 届世界杯的完整数据。
 
-First, run the development server:
+## 功能特色
+
+- **3D 螺旋时间线** — Three.js + R3F 构建，23 届世界杯以玻璃发光球体沿金色螺旋轨道排列，支持点击聚焦、自动旋转、陀螺仪控制
+- **球队实力雷达** — 六维数据对比（攻击/防守/中场/速度/经验/主场），ECharts 雷达图实时切换球队
+- **夺冠路径树状图** — 5 支冠军球队的经典夺冠之路，ECharts tree 可视化 + 统计面板
+- **历届举办地地图** — 世界地图 + 金色定位标 + 绿色流动弧线，大洲举办次数统计
+- **截图分享** — html2canvas 高清截图 + 二维码 + 水印
+- **响应式设计** — 桌面端全功能体验，移动端降级优化（2D 时间轴 / 减少星点 / 关闭自动旋转）
+
+## 技术栈
+
+| 分类 | 技术 |
+|------|------|
+| 框架 | Next.js 14 (App Router) + React 18 |
+| 3D 渲染 | Three.js 0.142 + @react-three/fiber v8 + @react-three/drei v9 |
+| 图表 | ECharts 6 |
+| 样式 | Tailwind CSS 3 |
+| 测试 | Vitest + Testing Library + Playwright |
+| 截图 | html2canvas + qrcode |
+| 语言 | TypeScript 5 |
+
+## 快速开始
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# 安装依赖
+pnpm install
+
+# 开发模式
 pnpm dev
-# or
-bun dev
+
+# 生产构建（输出到 out/）
+pnpm build
+
+# 单元测试
+pnpm test
+
+# E2E 测试
+pnpm test:e2e
+
+# 类型检查
+pnpm typecheck
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+打开 [http://localhost:3000](http://localhost:3000) 即可访问。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 项目结构
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                 # Next.js App Router
+│   ├── globals.css     # 全局样式（宇宙主题、玻璃拟态）
+│   ├── layout.tsx      # 根布局 + SEO meta
+│   └── page.tsx        # 主页面（视图切换 + 截图分享）
+├── components/
+│   ├── shell/          # 导航栏、视图切换、过渡动画
+│   ├── timeline/       # 3D 时间线场景、节点、螺旋轨道、详情卡片
+│   ├── radar/          # 球队雷达对比
+│   ├── path/           # 夺冠路径树状图
+│   ├── map/            # 历届举办地地图
+│   └── share/          # 截图分享弹窗
+├── hooks/              # WebGL 检测、移动端检测、自动旋转、视图状态
+├── lib/                # 数据类型定义 + JSON 数据源
+└── __tests__/          # 单元测试
+```
 
-## Learn More
+## 数据来源
 
-To learn more about Next.js, take a look at the following resources:
+所有数据为静态 JSON，位于 `src/lib/data/`：
+- `worldcups.json` — 23 届世界杯基本信息
+- `teams.json` — 10 支球队六维数据
+- `championPaths.json` — 5 条夺冠路径（每条 7 场比赛 + 关键事件）
+- `hosts.json` — 20 个举办国/城市坐标
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 部署
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+支持 Vercel / Cloudflare Pages 静态部署，详见 [DEPLOY.md](./DEPLOY.md)。
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
